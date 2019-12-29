@@ -25,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/litichevskiydv/grpc-pbf-loader/issues"
   },
-  "homepage": "https://github.com/litichevskiydv/grpc-pbf-loader#readme"
+  "homepage": "https://github.com/litichevskiydv/grpc-pbf-loader#readme",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "dot-prop": "^5.2.0",
+    "fs-extra": "^8.1.0",
+    "pbf": "^3.2.1",
+    "protocol-buffers-schema": "^3.3.2"
+  }
 }
