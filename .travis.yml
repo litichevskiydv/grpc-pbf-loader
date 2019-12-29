@@ -21,3 +21,14 @@ jobs:
         - npm run build:server:protos
         - npm run build:client
         - jest --coverage --coverageReporters=text-lcov | coveralls
+    - stage: deploy
+      node_js: lts/*
+      install: npm ci
+      script: skip
+      deploy:
+        provider: npm
+        email: litichevskiydv@gmail.com
+        api_key:
+          secure: TMOMM0aTcrNFVQAXtmQgCR08yWVuqJQXHGyXxkF8uFYVz4OLMuVuASWZuTPN/ojmEHgF3IC+nKnSGODr7Is7ZDKbwrYqmMs3YGDbbE3nwb5emnl4E7r1v51qtSbDolTcvTd8xggUGNozo4fNK9EWiWk3oZluSsM/dD5jFOcsLVij+wC/UuIdXlbCaKK5W9hr4yO5klDMkAkft+kc7TU/VNUSii9lVCJs3Ky1MDV9PzXnnTl8jOmFdDXr/OIH5HRRJGdqr+zwzrDM5BxQmBw/uycHtagkEmhLI6svRGQNw+rwyFMK5TLRzWlSvEjrKGaNcyL+Cq2+FSzNSEx4Fs6eo4hbnCPeevdV2duuwtkcj2G/ZOe1hsS4ZK7T90ExcTRNL0lAfjS2DOESdRfr6cx6n3/5ghBAJ+Hr8el0GXSjSqW/RWFdP/LTir5b5ECCijEGn+afcv0SJzi/cf4IAR1GbwYcwvT40M4p+69xVymYPTe8oo93+I6JjJ9jaDHLTelHLEJqhEKMINs1OR16e3Rp5Gp1Pptuo2ZrQIeQo0NiK9p6+SIRFLiTYp2CZ7QpLGkrxqVEWIfLSb29OTlksNNOI03cdhKy2PcNigrjyzYesLZ7QvbNOat+uxY/fvtz9H98fMnAe2dyUDGOmkCbwgZDpeH27SHXjbTfPXYWAnbZaEo=
+        on:
+          branch: master
