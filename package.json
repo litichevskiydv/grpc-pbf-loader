@@ -32,5 +32,25 @@
     "fs-extra": "^8.1.0",
     "pbf": "^3.2.1",
     "protocol-buffers-schema": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "coveralls": "^3.0.9",
+    "grpc": "^1.24.2",
+    "grpc-tools": "^1.8.0",
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2",
+    "mkdirp": "^0.5.1",
+    "protobufjs": "^6.8.8"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/generated/"
+    ]
   }
 }
