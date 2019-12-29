@@ -1,0 +1,29 @@
+{
+  "name": "grpc-pbf-loader",
+  "version": "1.0.0",
+  "description": "A utility package for loading .proto files for use with gRPC, using pbf as a serializer",
+  "main": "./src/index.js",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litichevskiydv/grpc-pbf-loader.git"
+  },
+  "keywords": [
+    "gRPC",
+    "proto",
+    "loader"
+  ],
+  "author": "Dmitriy Litichevskiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/litichevskiydv/grpc-pbf-loader/issues"
+  },
+  "homepage": "https://github.com/litichevskiydv/grpc-pbf-loader#readme"
+}
