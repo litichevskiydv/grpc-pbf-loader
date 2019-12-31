@@ -10,6 +10,7 @@ const schemePreprocessors = require("./schemePreprocessors");
  * @param {string} rootPackageName
  * @param {string} protofileName
  * @param {Buffer} protoFileContent
+ * @returns {import("protocol-buffers-schema/types").Schema}
  */
 function processFile(packagesStructure, rootPackageName, protofileName, protoFileContent) {
   const protoFileScheme = protobufSchema.parse(protoFileContent);
@@ -28,8 +29,10 @@ function processFile(packagesStructure, rootPackageName, protofileName, protoFil
 /**
  * @param {string} parentKey
  * @param {any} structure
+ * @returns {import("protocol-buffers-schema/types").Schema}
  */
 function collectMessagesAndEnums(parentKey, structure) {
+  /**  @type {import("protocol-buffers-schema/types").Schema} */
   const scheme = { enums: [], messages: [] };
   if (parentKey) Object.assign(scheme, { name: parentKey, fields: [] });
 
@@ -44,6 +47,7 @@ function collectMessagesAndEnums(parentKey, structure) {
 
 /**
  * @param {DefinitionLoadingOptions} options
+ * @returns {DefinitionLoadingOptions}
  */
 function prepareOptions(options) {
   /**  @type {DefinitionLoadingOptions} */
@@ -56,8 +60,10 @@ function prepareOptions(options) {
 /**
  * @param {string} protoFilePath
  * @param {DefinitionLoadingOptions} [options]
+ * @returns {Promise<import("protocol-buffers-schema/types").Schema>}
  */
 async function load(protoFilePath, options) {
+  /**  @type {import("protocol-buffers-schema/types").Schema} */
   let rootFileScheme = {};
   const opts = prepareOptions(options);
 
@@ -84,8 +90,10 @@ async function load(protoFilePath, options) {
 /**
  * @param {string} protoFilePath
  * @param {DefinitionLoadingOptions} [options]
+ * @returns {import("protocol-buffers-schema/types").Schema}
  */
 function loadSync(protoFilePath, options) {
+  /**  @type {import("protocol-buffers-schema/types").Schema} */
   let rootFileScheme = {};
   const opts = prepareOptions(options);
 
