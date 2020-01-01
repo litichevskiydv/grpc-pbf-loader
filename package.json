@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A utility package for loading .proto files for use with gRPC, using pbf as a serializer",
   "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "files": [
     "src",
     "README.md",

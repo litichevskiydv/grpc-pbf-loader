@@ -124,6 +124,6 @@ module.exports = {
 
 /**
  * @typedef {Object} DefinitionLoadingOptions
- * @property {boolean} keepCase Preserve field names. The default is to change them to camel case.
- * @property {string[]} includeDirs Paths to search for imported `.proto` files.
+ * @property {boolean} [keepCase] Preserve field names. The default is to change them to camel case.
+ * @property {string[]} [includeDirs] Paths to search for imported `.proto` files.
  */
