@@ -37,7 +37,7 @@
     "dot-prop": "^5.2.0",
     "fs-extra": "^8.1.0",
     "pbf": "^3.2.1",
-    "protocol-buffers-schema": "^3.3.2"
+    "protocol-buffers-schema": "^3.3.3"
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
