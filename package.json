@@ -1,6 +1,6 @@
 {
   "name": "grpc-pbf-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A utility package for loading .proto files for use with gRPC, using pbf as a serializer",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
