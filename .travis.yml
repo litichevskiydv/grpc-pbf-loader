@@ -32,3 +32,4 @@ jobs:
           secure: xRZib07Ie2LIWBLOfw3xSmG15hYAf3/xBjF8QWPBpk5ACeClaHSG5gBd1eyPF762gneiuDAlFTY1j1oHjMuQaDmMJBJwVOk4Lg4zr/ZE9JhvZJ9FTjZIOT3a12u4J1rZOdTURTgD0mmo/TH1ChhIO5goTuPRJUeDjlHeTZH5J+xqj+Fal4LYvF+QywlCGH38WsDYVWe4/tOXOdVEa0hyxacxth15/boVUATvBM5ADwH6Vxz7KCSSKyrWDV1dF1ZVnkjrGCi5MkRFBlIvpW7ZpUFb/493W4QLI+8J/g5kQhaR+gwzwu4DqEjppPAcyt1N+c7sBNwAEsQVOG0kqNXopO8RAwhgRPlvKVbnnEMFGjyMLf38troMWyUbqpnd1G4fyc6TuK4k+LS1BiHaNQ/Kk7Dr4eOA8PgaxlzK4ynug+D5SlokUYN5XbPsUXFu2jxVdSNbki7fg8+QlP5bC1yi16n03VoNIiolEMsyrspI2MhxqpRzIU51zPtyrrzBGOdI2ZeBb5c/h1TuLGWW+OSpTZ0UNG2IOYQuudrXxYh2P7M+QNsZcGBSKlpJTQK8O6pnjopAKri7cKoB18CeaZsrygtOJ5/hFVQIe545FMrTEH+zix2Y3S6RsDYvz2na7RbWRIBnRuBvl3KcdRq9s47QGfyjVoDv+eKDA5MymxtAVfk=
         on:
           branch: master
+          condition: commit_message !~ /no-deploy/
