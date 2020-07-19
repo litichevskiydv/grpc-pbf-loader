@@ -2,6 +2,9 @@
   "name": "grpc-pbf-loader",
   "version": "1.0.2",
   "description": "A utility package for loading .proto files for use with gRPC, using pbf as a serializer",
+  "engines": {
+    "node": ">=8"
+  },
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "files": [
