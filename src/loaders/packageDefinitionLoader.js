@@ -14,7 +14,7 @@ function createSerializer(formatter) {
   return function serialize(arg) {
     const pbf = new Pbf();
     formatter.write(arg, pbf);
-    return pbf.finish();
+    return Buffer.from(pbf.finish());
   };
 }
 
