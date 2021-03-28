@@ -1,12 +1,12 @@
 const path = require("path");
-const grpc = require("grpc");
+const grpc = require("@grpc/grpc-js");
 const { GrpcHostBuilder } = require("grpc-host-builder");
 
 const { load, loadSync } = require("../src/index").packageDefinition;
 
 const {
   HelloRequest: ServerUnaryRequest,
-  HelloResponse: ServerUnaryResponse
+  HelloResponse: ServerUnaryResponse,
 } = require("./generated/server/greeter_pb").v1;
 const { HelloRequest: ClientUnaryRequest, Event, GreeterClient } = require("./generated/client/greeter_client_pb").v1;
 const { Timestamp } = require("./generated/client/greeter_client_pb").google.protobuf;
@@ -16,19 +16,19 @@ const grpcBind = "0.0.0.0:3000";
 let server = null;
 let client = null;
 
-const createHost = packageDefinition =>
+const createHost = async (packageDefinition) =>
   new GrpcHostBuilder()
     .addService(grpc.loadPackageDefinition(packageDefinition).v1.Greeter.service, {
-      sayHello: call => {
+      sayHello: (call) => {
         const request = new ServerUnaryRequest(call.request);
 
         const event = request.event;
         event.id = 1;
         return new ServerUnaryResponse({ event });
-      }
+      },
     })
     .bind(grpcBind)
-    .build();
+    .buildAsync();
 
 const getEvent = async () => {
   const moment = new Timestamp();
@@ -41,20 +41,27 @@ const getEvent = async () => {
   const request = new ClientUnaryRequest();
   request.setEvent(event);
 
-  client = new GreeterClient(grpcBind, grpc.credentials.createInsecure());
+  if (client === null) client = new GreeterClient(grpcBind, grpc.credentials.createInsecure());
   return (await client.sayHello(request)).getEvent();
 };
 
 afterEach(() => {
-  if (client) client.close();
-  if (server) server.forceShutdown();
+  if (client) {
+    client.close();
+    client = null;
+  }
+
+  if (server) {
+    server.forceShutdown();
+    server = null;
+  }
 });
 
 test("Must load package definition synchronously", async () => {
   // Given
-  server = createHost(
+  server = await createHost(
     loadSync(path.join(__dirname, "./protos/greeter.proto"), {
-      includeDirs: [path.join(__dirname, "./protos")]
+      includeDirs: [path.join(__dirname, "./protos")],
     })
   );
 
@@ -69,9 +76,9 @@ test("Must load package definition synchronously", async () => {
 
 test("Must load package definition asynchronously", async () => {
   // Given
-  server = createHost(
+  server = await createHost(
     await load(path.join(__dirname, "./protos/greeter.proto"), {
-      includeDirs: [path.join(__dirname, "./protos")]
+      includeDirs: [path.join(__dirname, "./protos")],
     })
   );
 
