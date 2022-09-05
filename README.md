@@ -9,6 +9,9 @@
 
 A utility package for loading `.proto` files for use with gRPC, using [pbf](https://github.com/mapbox/pbf) as a serializer.
 
+## This was migrated to https://github.com/litichevskiydv/grpc-bay
+This repository has been moved to the unified "monorepo". You can find the source under [/packages/grpc-pbf-loader](https://github.com/litichevskiydv/grpc-bay/tree/master/packages/grpc-pbf-loader).
+
 ## Installation
 
 ```sh
